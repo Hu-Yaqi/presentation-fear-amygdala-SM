@@ -3035,5 +3035,65 @@ main{color-scheme:light}
 <section class="deck-slide" id="14" aria-roledescription="slide" aria-label="Slide 14 of 14" data-document-role="page" data-label="SM shows what happens when the fear trigger is failed. Could we weaken one fear…" data-speaker-notes="Hand-off. SM is the extreme case: no amygdala trigger, so no fear of external threats at all, and that's dangerous for her. The clinical question goes the other way: keep the amygdala, but weaken one maladaptive fear, like spiders, so approach becomes possible. That's what Björkstrand et al. test with reconsolidation. Callback: in SM, approach replaced avoidance because fear was absent. In Björkstrand, approach behavior is also the outcome. Is it the same mechanism? Questions to leave for the next presenter: Riccardo Ferrero (did the fear memory change, or did people learn safety; could fear return in another context?); Bailey Cherrington (PTSD, EMDR, subjective fear); Allan Schneider (orienting and startle); Shawn Wang (reconsolidation timing as exposure vs avoidance)."><div class="deck-fit"><div class="deck-scaler"><div style="width: 1920px; height: 1080px; position: relative; background: rgb(255, 255, 255); overflow: clip; contain: paint;" class="slide" data-canvas-width="1920" data-canvas-height="1080"><div data-frame-id="e0-1a3o3j6" style="position: absolute; left: 128px; width: 12px; top: 260px; height: 520px; box-sizing: border-box;"><div data-node-path="" style="display: flex; flex-direction: column; align-items: stretch; gap: 0px; width: 100%; height: 100%; background-color: rgb(180, 71, 42);"></div></div><div data-frame-id="e2-1a3o3j6" style="position: absolute; left: 176px; width: 1616px; bottom: 64px; box-sizing: border-box;"><div data-text-path="" data-node-path="" style="font-family: &quot;IBM Plex Sans&quot;, Arial, ui-sans-serif, system-ui, sans-serif; font-size: 24px; font-weight: 400; line-height: 1.4; color: rgb(107, 114, 128); margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; text-wrap-style: pretty; overflow-y: visible;">Thank you · Questions</div></div><div data-frame-id="pac17e397de02r0-ef419e9c" style="position: absolute; left: 176px; width: 1616px; top: 270px; box-sizing: border-box;"><div data-text-path="" data-node-path="" style="font-family: &quot;IBM Plex Sans&quot;, Arial, ui-sans-serif, system-ui, sans-serif; font-size: 24px; font-weight: 600; line-height: 1.4; color: rgb(180, 71, 42); margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; text-wrap-style: pretty; letter-spacing: 3px; text-transform: uppercase; overflow-y: visible;">Looking ahead</div></div><div data-frame-id="pac17e397de02r1-ef419e9c" style="position: absolute; right: 128px; width: 1616px; top: 346.68px; box-sizing: border-box;"><div data-text-path="" data-node-path="" role="heading" aria-level="2" style="font-family: &quot;Source Serif 4&quot;, Georgia, ui-serif, Georgia, serif; font-size: 64px; font-weight: 600; line-height: 1.15; color: rgb(30, 38, 51); margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; text-wrap-style: pretty; overflow-y: visible;">SM shows what happens when the fear trigger is failed. Could we weaken one fear by changing the memory it runs on?</div></div><div data-frame-id="pac17e397de02r2-ef419e9c" style="position: absolute; right: 128px; width: 1616px; top: 608.95px; box-sizing: border-box;"><div data-text-path="" data-node-path="" style="font-family: &quot;IBM Plex Sans&quot;, Arial, ui-sans-serif, system-ui, sans-serif; font-size: 30px; font-weight: 400; line-height: 1.4; color: rgb(62, 70, 82); margin: 0px; white-space: pre-wrap; overflow-wrap: break-word; text-wrap-style: pretty; overflow-y: visible;">Next: Björkstrand et al. (2016). Disrupting reconsolidation attenuates long-term fear memory in the human amygdala and facilitates approach behavior.</div></div></div></div></div></section>
 </main>
 <div class="deck-pager" aria-hidden="true"></div>
+<script>
+/* Speaker view: press S to open a notes window that follows the deck. */
+(function () {
+  var slides = [].slice.call(document.querySelectorAll('.deck-slide'));
+  var win = null, started = 0, timer = null;
+
+  function current() {
+    var m = /^#(\d+)$/.exec(location.hash);
+    return m ? Math.max(0, Math.min(slides.length - 1, Number(m[1]) - 1)) : 0;
+  }
+
+  function render() {
+    if (!win || win.closed) { clearInterval(timer); return; }
+    var i = current(), s = slides[i], n = slides[i + 1], d = win.document;
+    var secs = Math.floor((Date.now() - started) / 1000);
+    d.getElementById('pos').textContent = 'Slide ' + (i + 1) + ' / ' + slides.length;
+    d.getElementById('clock').textContent =
+      Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0');
+    d.getElementById('cur').textContent = s.getAttribute('data-label') || '';
+    d.getElementById('next').textContent = n ? 'Next: ' + (n.getAttribute('data-label') || '') : 'Last slide';
+    var notes = s.getAttribute('data-speaker-notes') || '(no notes)';
+    var box = d.getElementById('notes');
+    if (box.textContent !== notes) { box.textContent = notes; box.scrollTop = 0; }
+  }
+
+  function open() {
+    if (win && !win.closed) { win.focus(); return; }
+    win = window.open('', 'speaker-view', 'width=900,height=700');
+    if (!win) { alert('Allow pop-ups for this page to open the speaker view.'); return; }
+    win.document.write(
+      '<!doctype html><meta charset="utf-8"><title>Speaker view</title>' +
+      '<style>body{margin:0;font:20px/1.5 system-ui,sans-serif;background:#1E2633;color:#E6E9EE;display:flex;flex-direction:column;height:100vh}' +
+      'header{display:flex;justify-content:space-between;padding:14px 22px;background:#283244;font-weight:600}' +
+      '#clock{color:#E8A07E;font-variant-numeric:tabular-nums}' +
+      '#cur{font-size:26px;padding:16px 22px 4px;color:#fff;font-weight:600}' +
+      '#next{padding:0 22px 12px;color:#9AA5B1;font-size:18px}' +
+      '#notes{flex:1;overflow:auto;padding:16px 22px;white-space:pre-wrap;border-top:1px solid #3a4558;font-size:22px}' +
+      'footer{padding:8px 22px;color:#9AA5B1;font-size:15px;background:#283244}</style>' +
+      '<header><span id="pos"></span><span id="clock">0:00</span></header>' +
+      '<div id="cur"></div><div id="next"></div><div id="notes"></div>' +
+      '<footer>← → / Space: change slide (works in this window too) · Close this window to stop</footer>'
+    );
+    win.document.close();
+    win.addEventListener('keydown', function (e) {
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'Home', 'End'].indexOf(e.key) < 0) return;
+      e.preventDefault();
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: e.key, shiftKey: e.shiftKey }));
+    });
+    started = Date.now();
+    clearInterval(timer);
+    timer = setInterval(render, 250);
+    render();
+  }
+
+  window.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 's' || e.key === 'S') { e.preventDefault(); open(); }
+  });
+})();
+</script>
 </body>
 </html>
